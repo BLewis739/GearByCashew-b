@@ -1,0 +1,13 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>Styles<a href="{% url 'style_create' %}">(+)</a></h2>
+
+<ul>
+  {% for style in styles %}
+  <li>
+    <a href="{% url 'style_detail' pk=style.id %}">{{ style.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

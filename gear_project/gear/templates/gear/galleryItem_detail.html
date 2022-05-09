@@ -1,0 +1,15 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>{{ galleryItem.shortName }} <a href="{% url 'galleryItem_edit' pk=galleryItem.pk %}">(edit)</a></h2>
+
+<img src="{{ galleryItem.photoUrl }}" class="gallery-item-photo"><br><br>
+
+<h3>{{ galleryItem.wrestler}}</h3>
+
+<h4>{{ galleryItem.style}}</h4>
+
+<a href="{% url 'galleryItem_delete' pk=galleryItem.pk %}">Delete</a><br><br>
+
+<a href="{% url 'galleryItem_list' %}">Back to Gallery Item list</a>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE gear;
+CREATE USER gearuser WITH PASSWORD 'gear';
+GRANT ALL PRIVILEGES ON DATABASE gear TO gearuser;

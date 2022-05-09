@@ -1,0 +1,9 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>{{ gearOrder.shortName }} <a href="{% url 'gearOrder_edit' pk=gearOrder.pk %}">(edit)</a></h2>
+
+<a href="{% url 'gearOrder_delete' pk=gearOrder.pk %}">Delete</a><br><br>
+
+<a href="{% url 'gearOrder_list' %}">Back to Gear Order list</a>
+
+{% endblock %}

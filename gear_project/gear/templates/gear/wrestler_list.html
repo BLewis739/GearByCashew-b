@@ -1,0 +1,13 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>Wrestlers <a href="{% url 'wrestler_create' %}">(+)</a></h2>
+
+<ul>
+  {% for wrestler in wrestlers %}
+  <li>
+    <a href="{% url 'wrestler_detail' pk=wrestler.id %}"> {{ wrestler.name }} </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

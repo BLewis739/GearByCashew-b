@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+  <head>
+    <title>Gear</title>
+    <link rel="stylesheet" href="{% static 'css/gear.css' %}" />
+  </head>
+  <body>
+    <h1>Gear by Cashew</h1>
+    <nav>
+      <a href="/wrestlers">Wrestlers</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/styles">Styles</a>
+      <a href="/galleryitems">Gallery Items</a>
+      <a href="/gearorders">Gear Orders</a>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>

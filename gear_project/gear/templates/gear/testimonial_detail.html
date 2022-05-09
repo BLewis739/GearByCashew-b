@@ -1,0 +1,9 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>{{ testimonial.description }} <a href="{% url 'testimonial_edit' pk=testimonial.pk %}">(edit)</a></h2>
+
+<a href="{% url 'testimonial_delete' pk=testimonial.pk %}">Delete</a><br><br>
+
+<a href="{% url 'testimonial_list' %}">Back to Testimonial list</a>
+
+{% endblock %}

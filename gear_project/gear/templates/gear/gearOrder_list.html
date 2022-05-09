@@ -1,0 +1,13 @@
+{% extends 'gear/base.html' %} {% block content %}
+
+<h2>Gear Orders<a href="{% url 'gearOrder_create' %}">(+)</a></h2>
+
+<ul>
+  {% for gearOrder in gearOrders %}
+  <li>
+    <a href="{% url 'gearOrder_detail' pk=gearOrder.id %}">{{ gearOrder.shortName }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
