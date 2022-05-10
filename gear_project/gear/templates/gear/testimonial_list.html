@@ -5,6 +5,7 @@
 <ul>
   {% for testimonial in testimonials %}
   <li>
+    {{ testimonial.wrestler }}:
     <a href="{% url 'testimonial_detail' pk=testimonial.id %}">{{ testimonial.testimonialText }}</a>
   </li>
   {% endfor %}
