@@ -3,6 +3,7 @@ from .models import Wrestler, Style, GearOrder, GalleryItem, Testimonial
 # from .forms import TestimonialForm, WrestlerForm, StyleForm, GearOrderForm, GalleryItemForm
 from .serializers import WrestlerSerializer, TestimonialSerializer, StyleSerializer, GearOrderSerializer, GalleryItemSerializer
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -40,11 +41,13 @@ class StyleDetail(generics.RetrieveUpdateDestroyAPIView):
 class GearOrderList(generics.ListCreateAPIView):
     queryset = GearOrder.objects.all()
     serializer_class = GearOrderSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class GearOrderDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = GearOrder.objects.all()
     serializer_class = GearOrderSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class GalleryItemList(generics.ListCreateAPIView):

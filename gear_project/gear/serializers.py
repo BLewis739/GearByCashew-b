@@ -44,8 +44,7 @@ class GearOrderSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class GalleryItemSerializer(serializers.HyperlinkedModelSerializer):
-    wrestler = serializers.HyperlinkedRelatedField(
-        view_name='wrestler_detail',
+    wrestler = serializers.StringRelatedField(
         read_only=True
     )
 
