@@ -106,13 +106,7 @@ CORS_ALLOWED_ORIGINS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gear',
-        'USER': 'gearuser',
-        'PASSWORD': 'gear',
-        'HOST': 'localhost'
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -156,3 +150,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
