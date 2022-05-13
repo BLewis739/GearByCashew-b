@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Wrestler, Style, GearOrder, GalleryItem, Testimonial
+from .models import Wrestler, Style, GearOrder, GalleryItem, Testimonial, GalleryPhotoItem
 
 
 class TestimonialSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,15 +27,13 @@ class StyleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class GearOrderSerializer(serializers.HyperlinkedModelSerializer):
-    wrestler = serializers.HyperlinkedRelatedField(
-        view_name='wrestler_detail',
-        read_only=True
-    )
+    # wrestler = serializers.StringRelatedField(
+    #     read_only=False
+    # )
 
-    style = serializers.HyperlinkedRelatedField(
-        view_name='style_detail',
-        read_only=True
-    )
+    # style = serializers.StringRelatedField(
+    #     read_only=False
+    # )
 
     class Meta:
         model = GearOrder
@@ -53,9 +51,26 @@ class GalleryItemSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
 
+    gallery_photo_items = serializers.StringRelatedField(
+        read_only=True,
+        many=True
+    )
+
     class Meta:
         model = GalleryItem
-        fields = ('id', 'wrestler', 'style', 'photoUrl', 'shortName')
+        fields = ('id', 'wrestler', 'style',
+                  'gallery_photo_items', 'shortName')
+
+
+class GalleryPhotoItemSerializer(serializers.HyperlinkedModelSerializer):
+    galleryItems = serializers.HyperlinkedRelatedField(
+        view_name='galleryItem_detail',
+        read_only=True
+    )
+
+    class Meta:
+        model = GalleryPhotoItem
+        fields = ('id', 'galleryItems', 'photoName', 'photoUrl')
 
 
 class WrestlerSerializer(serializers.HyperlinkedModelSerializer):
@@ -71,12 +86,12 @@ class WrestlerSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
 
-    gear_orders = serializers.HyperlinkedRelatedField(
-        view_name='gearOrder_detail',
-        many=True,
-        read_only=True
-    )
+    # gear_orders = serializers.HyperlinkedRelatedField(
+    #     view_name='gearOrder_detail',
+    #     many=True,
+    #     read_only=True
+    # )
 
     class Meta:
         model = Wrestler
-        fields = ('id', 'name', 'gallery_items', 'testimonials', 'gear_orders')
+        fields = ('id', 'name', 'gallery_items', 'testimonials')

@@ -1,7 +1,7 @@
 # from django.shortcuts import render, redirect
-from .models import Wrestler, Style, GearOrder, GalleryItem, Testimonial
+from .models import Wrestler, Style, GearOrder, GalleryItem, Testimonial, GalleryPhotoItem
 # from .forms import TestimonialForm, WrestlerForm, StyleForm, GearOrderForm, GalleryItemForm
-from .serializers import WrestlerSerializer, TestimonialSerializer, StyleSerializer, GearOrderSerializer, GalleryItemSerializer
+from .serializers import WrestlerSerializer, TestimonialSerializer, StyleSerializer, GearOrderSerializer, GalleryItemSerializer, GalleryPhotoItemSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
@@ -58,6 +58,16 @@ class GalleryItemList(generics.ListCreateAPIView):
 class GalleryItemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = GalleryItem.objects.all()
     serializer_class = GalleryItemSerializer
+
+
+class GalleryPhotoItemList(generics.ListCreateAPIView):
+    queryset = GalleryPhotoItem.objects.all()
+    serializer_class = GalleryPhotoItemSerializer
+
+
+class GalleryPhotoItemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = GalleryPhotoItem.objects.all()
+    serializer_class = GalleryPhotoItemSerializer
 
 # def wrestler_list(request):
 #     wrestlers = Wrestler.objects.all()

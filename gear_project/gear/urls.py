@@ -24,6 +24,12 @@ urlpatterns = [
     path('galleryitems/<int:pk>', views.GalleryItemDetail.as_view(),
          name='galleryItem_detail'),
 
+    path('galleryphotoitems/', views.GalleryPhotoItemList.as_view(),
+         name='galleryPhotoItem_list'),
+    path('galleryphotoitems/<int:pk>', views.GalleryPhotoItemDetail.as_view(),
+         name='galleryPhotoItem_detail'),
+
+
     # # lists
     # path('wrestlers/', views.wrestler_list, name='wrestler_list'),
     # path('testimonials/', views.testimonial_list, name='testimonial_list'),
